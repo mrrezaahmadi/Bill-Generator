@@ -25,6 +25,7 @@ const foods = [{
     id: 4
 }];
 
+
 const add = (id) => {
     const addedItem = foods.find(food => {
         return food.id === id
@@ -34,6 +35,7 @@ const add = (id) => {
     addedItem.value = addedItem.amount * addedItem.price
     renderer(foods)
 }
+
 const remove = (id) => {
     const removedItem = foods.find(food => {
         return food.id === id
@@ -46,21 +48,35 @@ const remove = (id) => {
     renderer(foods)
 }
 
+const total = (foods) => {
+    let sum = 0
+    
+    foods.forEach(food => {
+        sum += food.value
+    });
+
+    return sum
+}
+
 
 const renderer = (foods) => {
-    $('.main').html('')
+    $('.main, .description').html('')
+
     foods.forEach(food => {
         $('.main').append(`
-            <h3>${food.name}</h3>
-            <p>Price: ${food.price}</p>
-            <p>Amount: ${food.amount}</p>
-            <p>Value: ${food.value}</p>
-            <button onClick="add(${food.id})" id="addBtn" > + </button>
-            <button onClick="remove(${food.id})" id="removeBtn" > - </button>
+            <div class="items">
+                <h3>${food.name}</h3>
+                <p>Price: ${food.price}</p>
+                <p>Amount: ${food.amount}</p>
+                <p>Value: ${food.value}</p>
+                <button onClick="add(${food.id})" id="addBtn" > + </button>
+                <button onClick="remove(${food.id})" id="removeBtn" > - </button>
+            </div>
         `)
-
-
     });
+    $('.description').append(`
+        <h2>Total value: ${total(foods)}</h2>
+    `)
 }
 
 renderer(foods)
