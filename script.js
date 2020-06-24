@@ -23,7 +23,39 @@ const foods = [{
     amount: 0,
     value: 0,
     id: 4
-}];
+}]
+
+const discounts = [{
+    title: 'helloworld',
+    value: 20000
+}, {
+    title: 'firsttime',
+    value: 15000
+}, {
+    title: 'note',
+    value: 7000
+}]
+
+let total_value = 0
+
+
+$('form').on('submit', e => {
+    e.preventDefault()
+})
+
+$('input').on('change', e => {
+    for (const discount of discounts) {
+        if (discount.title === e.target.value) {
+            console.log(discount.value);
+            total_value -= discount.value
+            renderer(foods)
+        }
+    }
+})
+
+
+
+
 
 
 const add = (id) => {
@@ -33,6 +65,7 @@ const add = (id) => {
 
     addedItem.amount += 1
     addedItem.value = addedItem.amount * addedItem.price
+    total_value += addedItem.price
     renderer(foods)
 }
 
@@ -44,19 +77,11 @@ const remove = (id) => {
     if (removedItem.amount > 0) {
         removedItem.amount -= 1
         removedItem.value = removedItem.amount * removedItem.price
+        total_value -= removedItem.price
     }
     renderer(foods)
 }
 
-const total = (foods) => {
-    let sum = 0
-    
-    foods.forEach(food => {
-        sum += food.value
-    });
-
-    return sum
-}
 
 
 const renderer = (foods) => {
@@ -74,8 +99,9 @@ const renderer = (foods) => {
             </div>
         `)
     });
+
     $('.description').append(`
-        <h2>Total value: ${total(foods)}</h2>
+        <h2>Total value: ${total_value}</h2>
     `)
 }
 
