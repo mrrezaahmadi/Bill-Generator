@@ -37,6 +37,7 @@ const discounts = [{
 }]
 
 let total_value = 0
+let discount_value = 0
 
 
 $('form').on('submit', e => {
@@ -46,15 +47,14 @@ $('form').on('submit', e => {
 $('input').on('change', e => {
     for (const discount of discounts) {
         if (discount.title === e.target.value) {
-            console.log(discount.value);
-            total_value -= discount.value
-            renderer(foods)
+            if (total_value > discount.value) {
+                discount_value = discount.value
+                total_value -= discount.value
+                renderer(foods)
+            }
         }
     }
 })
-
-
-
 
 
 
@@ -83,7 +83,6 @@ const remove = (id) => {
 }
 
 
-
 const renderer = (foods) => {
     $('.main, .description').html('')
 
@@ -102,7 +101,11 @@ const renderer = (foods) => {
 
     $('.description').append(`
         <h2>Total value: ${total_value}</h2>
+        <h2>Taxes: ${total_value / 10}</h2>
+        <h2>Discount: ${discount_value}</h2>
     `)
 }
+
+
 
 renderer(foods)
