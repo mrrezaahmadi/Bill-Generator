@@ -1,24 +1,24 @@
 const foods = [{
-    name: 'Pizza',
+    name: 'قورمه سبزی با پلو',
     price: 35000,
     amount: 0,
     value: 0,
     id: 1
 
 }, {
-    name: 'Spaghetti',
+    name: 'اسپاگتی مخصوص',
     price: 26000,
     amount: 0,
     value: 0,
     id: 2
 }, {
-    name: 'Kebbab',
+    name: 'چلو کباب',
     price: 48000,
     amount: 0,
     value: 0,
     id: 3
 }, {
-    name: 'Salad',
+    name: 'سالاد شیرازی',
     price: 12000,
     amount: 0,
     value: 0,

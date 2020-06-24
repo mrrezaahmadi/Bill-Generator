@@ -1,41 +1,77 @@
-div{
-    border: 1px green solid;
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url(./fonts/Yekan\ Bakh\ Medium.woff);
+    font-weight: 500;
 }
+
+/* div {
+    border: 1px green solid;
+} */
 
 .items {
     display: flex;
+    align-items: center;
     direction: rtl;
-    justify-content: space-between;
-    border: 1px blue solid;
-    width: 350px;
-    margin: 10px;
-    padding: 10px;
+    height: 200px;
+    width: 560px;
+    line-height: 10px;
+    border-bottom: 1px rgb(212, 210, 210) solid;
 }
 
 .btn {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
 }
+
+.btn-counter {
+    color: orange;
+    background: transparent;
+    border: transparent;
+    font-size: 32px;
+    width: 50px;
+}
+
+.amount > p {
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    width: 50px;
+}
+
 
 .food-des {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    padding: 0 10px;
 }
 
 .food-photo {
-    height: 100px;
-    width: 100px;
+    width: 20%;
+    margin: 10px;
+}
+
+.food-photo > img {
     border-radius: 50%;
+    width: 108px;
+    height: 107px;
     background-color: red;
 }
 
 .amount {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
+
+
 .main {
-    height: 300px;
+    width: inherit;
+    height: 670px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -43,10 +79,49 @@ div{
 }
 
 .bill-generator {
-    width: 500px;
+    font-family: "Yekan Bakh";
+    width: 603px;
+    height: 944px;
+    border-radius: 36.3px;
+    border: solid 7px rgba(241, 196, 15, 0.5);
 }
 
 .footer {
     display: flex;
     justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header > h1 {
+    font-size: 22.2px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.food-value {
+    display: flex;
+    width: 20%;
+    height: 100%;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.food-value > p > span {
+    font-size: 18px;
+}
+
+.footer .description {
+    padding: 0 50px;
+    width: 30%;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
+    text-align: start;
 }

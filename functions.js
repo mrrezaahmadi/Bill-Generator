@@ -51,26 +51,29 @@ const renderer = (foods) => {
     foods.forEach(food => {
         $('.main').append(`
             <div class="items">
-                <div class="food-photo"></div>
+                <div class="food-photo"><img></div>
                 <div class="food-des">
                     <h3>${food.name}</h3>
-                    <p>Price: ${food.price}</p>
+                    <p>${food.price} تومان</p>
                     <div class="amount">
-                        <p>Amount: ${food.amount}</p>
+                        <p>${food.amount}</p>
                         <div class="btn">
-                            <button onClick="add(${food.id})" id="addBtn" > + </button>
-                            <button onClick="remove(${food.id})" id="removeBtn" > - </button>
+                            <button class="btn-counter" onClick="add(${food.id})" id="addBtn" > + </button>
+                            <button class="btn-counter" onClick="remove(${food.id})" id="removeBtn" > - </button>
                         </div>
                     </div>
                 </div>
-                <p>Value: ${food.value}</p>
+                <div class="food-value" >
+                    <p><span>${food.value}</span> تومان</p>
+                </div>
             </div>
         `)
     });
 
     $('.description').append(`
-        <h2>Total value: ${total_value}</h2>
-        <h2>Taxes: ${total_value / 10}</h2>
-        <h2>Discount: ${discount_value}</h2>
+        <h4>جمع کل سفارشات: ${total_value} تومان</h4>
+        <h4>حق سرویس و کارمزد: ${total_value / 80} تومان</h4>
+        <h4>تخفیف: ${discount_value} تومان</h4>
+        <h1>${total_value - (total_value / 80)}</h1>
     `)
 }
