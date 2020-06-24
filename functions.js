@@ -51,12 +51,19 @@ const renderer = (foods) => {
     foods.forEach(food => {
         $('.main').append(`
             <div class="items">
-                <h3>${food.name}</h3>
-                <p>Price: ${food.price}</p>
-                <p>Amount: ${food.amount}</p>
+                <div class="food-photo"></div>
+                <div class="food-des">
+                    <h3>${food.name}</h3>
+                    <p>Price: ${food.price}</p>
+                    <div class="amount">
+                        <p>Amount: ${food.amount}</p>
+                        <div class="btn">
+                            <button onClick="add(${food.id})" id="addBtn" > + </button>
+                            <button onClick="remove(${food.id})" id="removeBtn" > - </button>
+                        </div>
+                    </div>
+                </div>
                 <p>Value: ${food.value}</p>
-                <button onClick="add(${food.id})" id="addBtn" > + </button>
-                <button onClick="remove(${food.id})" id="removeBtn" > - </button>
             </div>
         `)
     });
